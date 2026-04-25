@@ -156,7 +156,7 @@ async def main():
     logger.info("=" * 50)
     
     if not w3.is_connected():
-        logger.error("Cannot connect to Riche Chain")
+        logger.error("Cannot connect to BSC Chain")
         return
     
     bot = Bot(token=TELEGRAM_BOT_TOKEN)
@@ -186,10 +186,10 @@ async def main():
             price_str = f"{price:.4f}"
         
         # Tambahkan satuan di belakang
-        if pair['stable_type'] == "USD":
-            price_str = f"{price_str} USD"
+        if pair['stable_type'] == "USDT":
+            price_str = f"{price_str} USDT"
         else:
-            price_str = f"{price_str} RIC"
+            price_str = f"{price_str} BNB"
         
         # Format liquidity
         liq = pair['liquidity']
