@@ -186,8 +186,8 @@ async def main():
             price_str = f"{price:.4f}"
         
         # Tambahkan satuan di belakang
-        if pair['stable_type'] == "USDT":
-            price_str = f"{price_str} USDT"
+        if pair['stable_type'] == "USD":
+            price_str = f"{price_str} USD"
         else:
             price_str = f"{price_str} BNB"
         
