@@ -23,7 +23,7 @@ RPC_URL = "https://bsc-dataseed1.binance.org"
 DEX_URL = "https://dex.cryptoreceh.com/bsc"
 PAIR_INFO_URL = "https://dex.cryptoreceh.com/info"
 CREATE_TOKEN_URL = "https://app.cryptoreceh.com"
-BANNER_URL = "https://raw.githubusercontent.com/recehdex/images/refs/heads/main/recehdex-banner.png"
+BANNER_URL = "https://raw.githubusercontent.com/recehdex/images/refs/heads/main/recehdex-banner-bsc.png"
 
 w3 = Web3(Web3.HTTPProvider(RPC_URL))
 
@@ -205,7 +205,7 @@ async def main():
     
     message += "━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
     message += f"🕐 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC\n\n"
-    message += "💰 Data from RecehDEX on RicheChain"
+    message += "💰 Data from RecehDEX on BSC"
     
     # Tombol
     keyboard = [
