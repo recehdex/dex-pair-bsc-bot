@@ -165,14 +165,14 @@ def get_top_3_pairs():
                 
                 stable_type = get_stable_type(stable_address)
                 
-                # HITUNG LIQUIDITY DALAM USD YANG BENAR
+                # HITUNG HARGA DALAM USD
                 if stable_type == "USDT":
                     # Pair TOKEN/USDT - USDT langsung 1:1 USD
                     price_usd = stable_reserve / token_reserve
-                    liquidity_usd = stable_reserve * 2  # Total value pool dalam USD
+                    liquidity_usd = stable_reserve * 2
                     
                 else:  # WBNB
-                    # Pair TOKEN/WBNB - perlu konversi WBNB ke USD
+                    # Pair TOKEN/WBNB - konversi ke USD
                     price_usd = (stable_reserve / token_reserve) * bnb_price
                     liquidity_usd = (stable_reserve * bnb_price) * 2
                 
@@ -182,11 +182,11 @@ def get_top_3_pairs():
                         "token_address": token_address,
                         "stable_address": stable_address,
                         "stable_type": stable_type,
-                        "price": price_usd,
+                        "price": price_usd,  # SUDAH DALAM USD
                         "liquidity": liquidity_usd,
                     })
                     
-                    logger.info(f"{token_symbol}/{stable_symbol}: price=${price_usd:.8f}, liq=${liquidity_usd:.2f}")
+                    logger.info(f"{token_symbol}/{stable_symbol}: price=${price_usd:.8f} USD, liq=${liquidity_usd:.2f}")
                     
             except Exception as e:
                 logger.error(f"Error pair {i}: {e}")
@@ -229,8 +229,9 @@ async def main():
     message += "━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
     
     for idx, pair in enumerate(top_pairs, 1):
-        # Format price
+        # Format price - SEMUA DALAM USD
         price = pair['price']
+        
         if price < 0.000001:
             price_str = f"{price:.12f}"
         elif price < 0.0001:
@@ -245,11 +246,8 @@ async def main():
         # Hilangkan trailing zeros
         price_str = price_str.rstrip('0').rstrip('.')
         
-        # Tambah satuan
-        if pair['stable_type'] == "USDT":
-            price_str = f"${price_str} USD"
-        else:
-            price_str = f"{price_str} BNB"
+        # TAMPILKAN DENGAN $ DAN USD UNTUK SEMUA PAIR
+        price_str = f"${price_str} USD"
         
         # Format liquidity
         liq = pair['liquidity']
