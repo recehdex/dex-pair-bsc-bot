@@ -2,7 +2,7 @@ name: RecehDEX Bot
 
 on:
   schedule:
-    - cron: '0 */1 * * *'  # Tiap 1 jam
+    - cron: '0 */12 * * *'  # Tiap 1 jam
   workflow_dispatch:
 
 jobs:
