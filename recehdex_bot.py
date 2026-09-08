@@ -20,7 +20,7 @@ USDT_ADDRESS = "0x55d398326f99059fF775485246999027B3197955"
 WBNB_ADDRESS = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
 
 RPC_URL = "https://bsc-dataseed1.binance.org"
-DEX_URL = "https://dex.cryptoreceh.com/bsc"
+DEX_URL = "https://dex.cryptoreceh.com/"
 PAIR_INFO_URL = "https://dex.cryptoreceh.com/info"
 CREATE_TOKEN_URL = "https://app.cryptoreceh.com"
 BANNER_URL = "https://raw.githubusercontent.com/recehdex/images/refs/heads/main/recehdex-banner-bsc.png"
