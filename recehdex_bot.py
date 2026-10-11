@@ -256,7 +256,7 @@ async def main():
         else:
             liq_str = f"${liq:.2f}"
         
-        trade_url = f"{DEX_URL}?inputCurrency={pair['token_address']}&outputCurrency={pair['stable_address']}"
+        trade_url = f"{DEX_URL}&inputCurrency={pair['token_address']}&outputCurrency={pair['stable_address']}"
         
         message += f"<b>{idx}. {pair['pair_name']}</b>\n\n"
         message += f"   💰 Price: <code>{price_str}</code>\n"
